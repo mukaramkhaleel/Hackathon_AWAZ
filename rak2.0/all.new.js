@@ -14,10 +14,12 @@
     var wrap = document.querySelector('#history-wrap');
     var form = document.querySelector('form');
     var input = document.querySelector('input');
+    input.value = "a";
     
     function init() {
       sonicServer.start();
       sonicServer.on('message', onIncomingChat);
+      //setInterval(function(){ sonicSocket.send(input.value); }, 2000);
       form.addEventListener('submit', onSubmitForm);
     }
     
@@ -27,14 +29,40 @@
       // Send via oscillator.
       sonicSocket.send(message);
       // Clear the input element.
-      input.value = '';
+      //input.value = '';
       // Don't actually submit the form.
       e.preventDefault();
     }
     
     function onIncomingChat(message) {
       console.log('chat inbound.');
-      history.innerHTML += time() + ': ' + message + '<br/>';
+      //history.innerHTML = time() + ': ' + message + '<br/>';
+      window.location.href = "https://www.youtube.com/watch?v=" + message;
+      // switch(message) {
+      //   case "ab":
+      //     history.innerHTML = "Hello Abhinav";
+      //   break;
+      //   case "ui":
+      //     history.innerHTML = "Hello Aravind";
+      //   break;
+      //   case "ra":
+      //     history.innerHTML = "Hello Gaus";
+      //   break;
+      //   case "vi":
+      //     history.innerHTML = "Hello Vinay";
+      //   break;
+      //   case "ki":
+      //     history.innerHTML = "Hello Kishor";
+      //   break;
+      //   case "um":
+      //     history.innerHTML = "Hello Umesh";
+      //   break;
+      //   case "go":
+      //     history.innerHTML = "Hello Gokul";
+      //   break;
+      //   default:
+      //     history.innerHTML = message;
+      // }
       // Scroll history to the bottom.
       wrap.scrollTop = history.scrollHeight;
     }
