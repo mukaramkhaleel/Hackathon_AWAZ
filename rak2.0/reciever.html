@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <style>
+            * {
+                margin: 0 auto;
+            }
+            body {
+                background-color: #fff;
+            }
+            #container {
+                width: 850px;
+                margin: auto;
+                box-sizing: border-box;
+                text-align: center;
+                padding: 1rem;
+                background: transparent;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            header {
+                color: #fff;
+                font-size: 2rem;
+                letter-spacing: .7em;
+            }
+            header > span {
+                display: block;
+                font-size: 1rem;
+                letter-spacing: .5em;
+            }
+            input[type="text"] {
+                display: block;
+                width: calc(100% - 20px);
+                padding: 10px;
+                margin: 10px 0;
+                border: 0;
+            }
+            #history-wrap {
+                width: calc(100% - 20px);
+                padding: 10px;
+                color: #bf0000;
+                background-color: transparent;
+                margin-top: 20px;
+                font-family: 'Roboto Mono', monospace;
+                text-align: center;
+                font-size: 4rem;
+            }
+            #history-wrap span {
+                font-size: 1rem;
+            }
+            footer {
+                visibility: hidden;
+            }
+            .person {
+                border-bottom: 1px solid #bf0000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>A W A Z<span>[Data Over Sound]</span></header>
+            <div id="history-wrap">
+                <div id="history">
+                </div>
+            </div>
+            <footer>
+                <form id="say" action="#">
+                    <input type="text" id="text-input" placeholder="Say something..." />
+                </form>
+            </footer>
+        </div>
+        <script src="all.new.js"></script>
+    </body>
+</html>

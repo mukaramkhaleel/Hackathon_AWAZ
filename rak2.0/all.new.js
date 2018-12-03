@@ -11,7 +11,8 @@
     
     
     var history = document.querySelector('#history');
-    var wrap = document.querySelector('#history-wrap');
+    var container = document.querySelector('#history-wrap');
+    var wrap = document.querySelector('#container');
     var form = document.querySelector('form');
     var input = document.querySelector('input');
     input.value = "a";
@@ -37,35 +38,69 @@
     function onIncomingChat(message) {
       console.log('chat inbound.');
       //history.innerHTML = time() + ': ' + message + '<br/>';
-      window.location.href = "https://www.youtube.com/watch?v=" + message;
-      // switch(message) {
-      //   case "ab":
-      //     history.innerHTML = "Hello Abhinav";
-      //   break;
-      //   case "ui":
-      //     history.innerHTML = "Hello Aravind";
-      //   break;
-      //   case "ra":
-      //     history.innerHTML = "Hello Gaus";
-      //   break;
-      //   case "vi":
-      //     history.innerHTML = "Hello Vinay";
-      //   break;
-      //   case "ki":
-      //     history.innerHTML = "Hello Kishor";
-      //   break;
-      //   case "um":
-      //     history.innerHTML = "Hello Umesh";
-      //   break;
-      //   case "go":
-      //     history.innerHTML = "Hello Gokul";
-      //   break;
-      //   default:
-      //     history.innerHTML = message;
-      // }
+      //window.location.href = "https://www.youtube.com/watch?v=" + message;
+      var template = ""
+      template += "<div class='person'>";
+      switch(message) {
+        case "ab":
+          template += "Hello Abhinav";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "ui":
+          template += "Hello Aravind";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "ra":
+          template += "Hello Gaus";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "vi":
+          template += "Hello Vinay";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "ki":
+          template += "Hello Kishor";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "um":
+          template += "Hello Umesh";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "mk":
+          template += "Hello Mukkaram";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "go":
+          template += "Hello Gokul";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "su":
+          template += "Hello Sujit";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        case "h":
+          template += "Ferrari P 330";
+          template += "<br><span>" + (new Date()) + "</span>";
+        break;
+        default:
+          //history.innerHTML = message;
+      }
+      template += "</div>";
+      history.innerHTML += template;
       // Scroll history to the bottom.
       wrap.scrollTop = history.scrollHeight;
+      // setTimeout(function() {
+      //   sendUp(history.scrollHeight);
+      //   console.log(container.scrollTop);
+      //   console.log(history.scrollHeight);
+      //   return;
+      // }, 2000);
+      
     }
+
+    function sendUp(val){
+      container.scrollTop = val;
+    } 
     
     function time() {
       var now = new Date();
@@ -447,7 +482,7 @@
         var height = value + 400;
         var offset = canvas.height - height - 1;
         var barWidth = canvas.width/this.freqs.length;
-        drawContext.fillStyle = 'green';
+        drawContext.fillStyle = '#bf0000';
         drawContext.fillRect(i * barWidth, offset, 1, 1);
       }
     };
